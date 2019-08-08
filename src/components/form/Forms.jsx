@@ -3,10 +3,11 @@ import React, { Component } from "react";
 export default class Forms extends Component {
     constructor(props) {
         super(props);
-
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (event) => {
+    // handleChange = (event) => {
+    handleChange(event) {
         event.preventDefault();
         console.log(event.target.value)
     }
@@ -26,7 +27,7 @@ export default class Forms extends Component {
         <form>
           <label>
             Name:
-            <input type="text" name="name" onChange={handleChange}/>
+            <input type="text" name="name" onChange={this.handleChange}/>
           </label>
           <input type="submit" value="Submit" />
         </form>

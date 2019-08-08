@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "deabcfb0e1d89e207baf"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fe9b058f4b84490c13e4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -25103,13 +25103,36 @@
 	var Forms = function (_Component) {
 	  _inherits(Forms, _Component);
 	
-	  function Forms() {
+	  function Forms(props) {
 	    _classCallCheck(this, Forms);
 	
-	    return _possibleConstructorReturn(this, (Forms.__proto__ || Object.getPrototypeOf(Forms)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Forms.__proto__ || Object.getPrototypeOf(Forms)).call(this, props));
+	
+	    _this.handleChange = _this.handleChange.bind(_this);
+	    return _this;
 	  }
 	
+	  // handleChange = (event) => {
+	
+	
 	  _createClass(Forms, [{
+	    key: "handleChange",
+	    value: function handleChange(event) {
+	      event.preventDefault();
+	      console.log(event.target.value);
+	    }
+	    /**
+	     * This form has the default HTML form behavior of browsing to a new page when the user submits the form. 
+	     * If you want this behavior in React, it just works. But in most cases, 
+	     * it’s convenient to have a JavaScript function that handles the submission of the form and has access to the data that the user entered into the form. 
+	     * The standard way to achieve this is with a technique called 
+	     * “controlled components”.
+	     * We can combine the two by making the React state be the “single source of truth”. 
+	     * Then the React component that renders a form also controls what happens in that form on subsequent user input. 
+	     * An input form element whose value is controlled by React in this way is called a “controlled component”.
+	     */
+	
+	  }, {
 	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -25122,7 +25145,7 @@
 	            "label",
 	            null,
 	            "Name:",
-	            _react2.default.createElement("input", { type: "text", name: "name" })
+	            _react2.default.createElement("input", { type: "text", name: "name", onChange: this.handleChange })
 	          ),
 	          _react2.default.createElement("input", { type: "submit", value: "Submit" })
 	        )
