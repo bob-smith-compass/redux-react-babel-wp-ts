@@ -4,12 +4,17 @@ export default class Forms extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // handleChange = (event) => {
     handleChange(event) {
         event.preventDefault();
         console.log(event.target.value)
+    }
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log(e.target.value);
     }
     /**
      * This form has the default HTML form behavior of browsing to a new page when the user submits the form. 
@@ -29,7 +34,7 @@ export default class Forms extends Component {
             Name:
             <input type="text" name="name" onChange={this.handleChange}/>
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onSubmit={this.handleSubmit}/>
         </form>
       </div>
     );

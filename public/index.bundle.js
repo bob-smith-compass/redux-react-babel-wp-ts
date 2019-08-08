@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fe9b058f4b84490c13e4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b6edfb8f0c8da5f6b83f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -25011,6 +25011,10 @@
 	
 	var _Forms2 = _interopRequireDefault(_Forms);
 	
+	var _ReactForm = __webpack_require__(205);
+	
+	var _ReactForm2 = _interopRequireDefault(_ReactForm);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25066,7 +25070,8 @@
 	            "Babel"
 	          )
 	        ),
-	        _react2.default.createElement(_Forms2.default, null)
+	        _react2.default.createElement(_Forms2.default, null),
+	        _react2.default.createElement(_ReactForm2.default, null)
 	      );
 	    }
 	  }]);
@@ -25109,6 +25114,7 @@
 	    var _this = _possibleConstructorReturn(this, (Forms.__proto__ || Object.getPrototypeOf(Forms)).call(this, props));
 	
 	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    return _this;
 	  }
 	
@@ -25120,6 +25126,12 @@
 	    value: function handleChange(event) {
 	      event.preventDefault();
 	      console.log(event.target.value);
+	    }
+	  }, {
+	    key: "handleSubmit",
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      console.log(e.target.value);
 	    }
 	    /**
 	     * This form has the default HTML form behavior of browsing to a new page when the user submits the form. 
@@ -25147,7 +25159,7 @@
 	            "Name:",
 	            _react2.default.createElement("input", { type: "text", name: "name", onChange: this.handleChange })
 	          ),
-	          _react2.default.createElement("input", { type: "submit", value: "Submit" })
+	          _react2.default.createElement("input", { type: "submit", value: "Submit", onSubmit: this.handleSubmit })
 	        )
 	      );
 	    }
@@ -25157,6 +25169,78 @@
 	}(_react.Component);
 	
 	exports.default = Forms;
+
+/***/ }),
+/* 205 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(18);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ReactForm = function (_React$Component) {
+	  _inherits(ReactForm, _React$Component);
+	
+	  function ReactForm(props) {
+	    _classCallCheck(this, ReactForm);
+	
+	    var _this = _possibleConstructorReturn(this, (ReactForm.__proto__ || Object.getPrototypeOf(ReactForm)).call(this, props));
+	
+	    _this.state = { value: '' };
+	
+	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(ReactForm, [{
+	    key: 'handleChange',
+	    value: function handleChange(event) {
+	      this.setState({ value: event.target.value });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(event) {
+	      alert('A name was submitted: ' + this.state.value);
+	      event.preventDefault();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'form',
+	        { onSubmit: this.handleSubmit },
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Name:',
+	          _react2.default.createElement('input', { type: 'text', value: this.state.value, onChange: this.handleChange })
+	        ),
+	        _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+	      );
+	    }
+	  }]);
+	
+	  return ReactForm;
+	}(_react2.default.Component);
+	
+	exports.default = ReactForm;
 
 /***/ })
 /******/ ]);

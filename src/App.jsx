@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "./components/form/Forms";
+import ReactForm from "./components/react-form/ReactForm";
 
 export default class App extends React.Component {
   render() {
@@ -18,6 +19,7 @@ export default class App extends React.Component {
           <option value="Babel">Babel</option>
         </select>
         <Form />
+        <ReactForm />
       </div>
     );
   }
