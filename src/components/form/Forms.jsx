@@ -3,6 +3,9 @@ import React, { Component } from "react";
 export default class Forms extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            name: ''
+        }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -10,11 +13,17 @@ export default class Forms extends Component {
     // handleChange = (event) => {
     handleChange(event) {
         event.preventDefault();
+        this.setState({
+            name: event.target.value
+        })
+
         console.log(event.target.value)
     }
     handleSubmit(e) {
         e.preventDefault();
-        console.log(e.target.value);
+        // console.log(e.target.value);
+        console.log(this.state);
+
     }
     /**
      * This form has the default HTML form behavior of browsing to a new page when the user submits the form. 
@@ -29,12 +38,12 @@ export default class Forms extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Name:
             <input type="text" name="name" onChange={this.handleChange}/>
           </label>
-          <input type="submit" value="Submit" onSubmit={this.handleSubmit}/>
+          <input type="submit" value="Submit" />
         </form>
       </div>
     );

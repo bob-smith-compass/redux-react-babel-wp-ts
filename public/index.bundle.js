@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b6edfb8f0c8da5f6b83f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "00cfb5b596caf8f62989"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -25088,7 +25088,7 @@
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -25106,66 +25106,74 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var Forms = function (_Component) {
-	  _inherits(Forms, _Component);
+	    _inherits(Forms, _Component);
 	
-	  function Forms(props) {
-	    _classCallCheck(this, Forms);
+	    function Forms(props) {
+	        _classCallCheck(this, Forms);
 	
-	    var _this = _possibleConstructorReturn(this, (Forms.__proto__ || Object.getPrototypeOf(Forms)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Forms.__proto__ || Object.getPrototypeOf(Forms)).call(this, props));
 	
-	    _this.handleChange = _this.handleChange.bind(_this);
-	    _this.handleSubmit = _this.handleSubmit.bind(_this);
-	    return _this;
-	  }
-	
-	  // handleChange = (event) => {
-	
-	
-	  _createClass(Forms, [{
-	    key: "handleChange",
-	    value: function handleChange(event) {
-	      event.preventDefault();
-	      console.log(event.target.value);
+	        _this.state = {
+	            name: ''
+	        };
+	        _this.handleChange = _this.handleChange.bind(_this);
+	        _this.handleSubmit = _this.handleSubmit.bind(_this);
+	        return _this;
 	    }
-	  }, {
-	    key: "handleSubmit",
-	    value: function handleSubmit(e) {
-	      e.preventDefault();
-	      console.log(e.target.value);
-	    }
-	    /**
-	     * This form has the default HTML form behavior of browsing to a new page when the user submits the form. 
-	     * If you want this behavior in React, it just works. But in most cases, 
-	     * it’s convenient to have a JavaScript function that handles the submission of the form and has access to the data that the user entered into the form. 
-	     * The standard way to achieve this is with a technique called 
-	     * “controlled components”.
-	     * We can combine the two by making the React state be the “single source of truth”. 
-	     * Then the React component that renders a form also controls what happens in that form on subsequent user input. 
-	     * An input form element whose value is controlled by React in this way is called a “controlled component”.
-	     */
 	
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        null,
-	        _react2.default.createElement(
-	          "form",
-	          null,
-	          _react2.default.createElement(
-	            "label",
-	            null,
-	            "Name:",
-	            _react2.default.createElement("input", { type: "text", name: "name", onChange: this.handleChange })
-	          ),
-	          _react2.default.createElement("input", { type: "submit", value: "Submit", onSubmit: this.handleSubmit })
-	        )
-	      );
-	    }
-	  }]);
+	    // handleChange = (event) => {
 	
-	  return Forms;
+	
+	    _createClass(Forms, [{
+	        key: "handleChange",
+	        value: function handleChange(event) {
+	            event.preventDefault();
+	            this.setState({
+	                name: event.target.value
+	            });
+	
+	            console.log(event.target.value);
+	        }
+	    }, {
+	        key: "handleSubmit",
+	        value: function handleSubmit(e) {
+	            e.preventDefault();
+	            // console.log(e.target.value);
+	            console.log(this.state);
+	        }
+	        /**
+	         * This form has the default HTML form behavior of browsing to a new page when the user submits the form. 
+	         * If you want this behavior in React, it just works. But in most cases, 
+	         * it’s convenient to have a JavaScript function that handles the submission of the form and has access to the data that the user entered into the form. 
+	         * The standard way to achieve this is with a technique called 
+	         * “controlled components”.
+	         * We can combine the two by making the React state be the “single source of truth”. 
+	         * Then the React component that renders a form also controls what happens in that form on subsequent user input. 
+	         * An input form element whose value is controlled by React in this way is called a “controlled component”.
+	         */
+	
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "form",
+	                    { onSubmit: this.handleSubmit },
+	                    _react2.default.createElement(
+	                        "label",
+	                        null,
+	                        "Name:",
+	                        _react2.default.createElement("input", { type: "text", name: "name", onChange: this.handleChange })
+	                    ),
+	                    _react2.default.createElement("input", { type: "submit", value: "Submit" })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Forms;
 	}(_react.Component);
 	
 	exports.default = Forms;
