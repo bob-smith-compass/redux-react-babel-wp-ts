@@ -4,7 +4,8 @@ export default class Forms extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: ''
+            name: '',
+            originalCurrency: null
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,8 +43,14 @@ export default class Forms extends Component {
           <label>
             Name:
             <input type="text" name="name" onChange={this.handleChange}/>
+            <select value={this.state.originalCurrency} onChange={this.handleChange}>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="CDN">CDN</option>
+            </select>
           </label>
           <input type="submit" value="Submit" />
+          <div>{this.state.originalCurrency}</div>
         </form>
       </div>
     );

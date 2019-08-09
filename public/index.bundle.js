@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "00cfb5b596caf8f62989"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fe758833606a3e783abc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -25114,7 +25114,8 @@
 	        var _this = _possibleConstructorReturn(this, (Forms.__proto__ || Object.getPrototypeOf(Forms)).call(this, props));
 	
 	        _this.state = {
-	            name: ''
+	            name: '',
+	            originalCurrency: null
 	        };
 	        _this.handleChange = _this.handleChange.bind(_this);
 	        _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -25165,9 +25166,33 @@
 	                        "label",
 	                        null,
 	                        "Name:",
-	                        _react2.default.createElement("input", { type: "text", name: "name", onChange: this.handleChange })
+	                        _react2.default.createElement("input", { type: "text", name: "name", onChange: this.handleChange }),
+	                        _react2.default.createElement(
+	                            "select",
+	                            { value: this.state.originalCurrency, onChange: this.handleChange },
+	                            _react2.default.createElement(
+	                                "option",
+	                                { value: "EUR" },
+	                                "EUR"
+	                            ),
+	                            _react2.default.createElement(
+	                                "option",
+	                                { value: "USD" },
+	                                "USD"
+	                            ),
+	                            _react2.default.createElement(
+	                                "option",
+	                                { value: "CDN" },
+	                                "CDN"
+	                            )
+	                        )
 	                    ),
-	                    _react2.default.createElement("input", { type: "submit", value: "Submit" })
+	                    _react2.default.createElement("input", { type: "submit", value: "Submit" }),
+	                    _react2.default.createElement(
+	                        "div",
+	                        null,
+	                        this.state.originalCurrency
+	                    )
 	                )
 	            );
 	        }
