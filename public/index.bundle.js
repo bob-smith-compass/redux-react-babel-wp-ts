@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "366b517ea4148e120b0a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8b44c5cda2b87f3963d3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1473,7 +1473,13 @@
 	    fname: 'David',
 	    lname: 'Shams'
 	};
-	var element = _react2.default.createElement(
+	var element = user.lname === 'Shams' ? _react2.default.createElement(
+	    'h1',
+	    null,
+	    'Hello ',
+	    user.fname,
+	    ' - Architect'
+	) : _react2.default.createElement(
 	    'h1',
 	    null,
 	    'Hello ',
@@ -1482,6 +1488,41 @@
 	
 	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), root);
 	_reactDom2.default.render(element, moot);
+	/**
+	 * Components are like Simple functions
+	 */
+	function Hello(props) {
+	    return _react2.default.createElement(
+	        'h1',
+	        null,
+	        'React ',
+	        props.name
+	    );
+	}
+	_reactDom2.default.render(_react2.default.createElement(Hello, { name: 'David' }), simple);
+	
+	function tick() {
+	    var element = _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	            'h1',
+	            null,
+	            'React'
+	        ),
+	        _react2.default.createElement(
+	            'h2',
+	            null,
+	            'It is ',
+	            new Date().toLocaleTimeString(),
+	            '.'
+	        )
+	    );
+	    // highlight-next-line
+	    ReactDOM.render(element, document.getElementById('joot'));
+	}
+	
+	setInterval(tick, 1000);
 
 /***/ }),
 /* 4 */
