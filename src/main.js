@@ -28,6 +28,13 @@ function Hello(props) {
 }
 ReadtDOM.render(<Hello name='David' />, simple);
 
+class Welcome extends React.Component {
+    render() {
+        return <h2>Class</h2>
+    }
+}
+ReadtDOM.render(<Welcome name='David' />, cclass);
+
 
 function tick() {
     const element = (
