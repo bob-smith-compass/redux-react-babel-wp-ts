@@ -30,7 +30,7 @@ ReadtDOM.render(<Hello name='David' />, simple);
 
 class Welcome extends React.Component {
     render() {
-        return <h2>Class</h2>
+        return <h2>Class {this.props.name}</h2>
     }
 }
 ReadtDOM.render(<Welcome name='David' />, cclass);
