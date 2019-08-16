@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9cc0171ec526c58203a4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "366b517ea4148e120b0a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1464,12 +1464,20 @@
 	/**
 	 * Simplest React
 	 */
-	var name = 'David Shams';
+	// const name = 'David Shams'
+	
+	function formatName(user) {
+	    return user.fname + ' ' + user.lname;
+	}
+	var user = {
+	    fname: 'David',
+	    lname: 'Shams'
+	};
 	var element = _react2.default.createElement(
-	  'h1',
-	  null,
-	  'Hello ',
-	  name
+	    'h1',
+	    null,
+	    'Hello ',
+	    formatName(user)
 	);
 	
 	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), root);
