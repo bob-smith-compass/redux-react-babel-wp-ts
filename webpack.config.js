@@ -34,6 +34,8 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx'],
     },
-    devServer: { inline: true },
+    devServer: { 
+        inline: true,
+     },
     devtool: 'source-map'
 }
