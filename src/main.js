@@ -2,6 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
+/**
+ * 
+ * Redux
+ */
+// import  store  from './store/index';
+// import store from './store/index';
+
 
 /**
  * Simplest React
