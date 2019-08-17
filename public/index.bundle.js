@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c63fe983b39abd94e22a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "238adbce9808b19dfa53"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1535,6 +1535,60 @@
 	
 	_reactDom2.default.render(_react2.default.createElement(Welcome, { name: 'David' }), cclass);
 	
+	var Item = function (_React$Component2) {
+	    _inherits(Item, _React$Component2);
+	
+	    function Item() {
+	        _classCallCheck(this, Item);
+	
+	        return _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).apply(this, arguments));
+	    }
+	
+	    _createClass(Item, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                this.props.item
+	            );
+	        }
+	    }]);
+	
+	    return Item;
+	}(_react2.default.Component);
+	
+	var List = function (_React$Component3) {
+	    _inherits(List, _React$Component3);
+	
+	    function List() {
+	        _classCallCheck(this, List);
+	
+	        return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
+	    }
+	
+	    _createClass(List, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                this.props.times.map(function (e) {
+	                    return _react2.default.createElement(
+	                        'div',
+	                        { key: e },
+	                        _react2.default.createElement(Item, { item: e })
+	                    );
+	                })
+	            );
+	        }
+	    }]);
+	
+	    return List;
+	}(_react2.default.Component);
+	
+	_reactDom2.default.render(_react2.default.createElement(List, { times: ['David', 'John', 'Bob'] }), list);
+	
 	function tick() {
 	    var element = _react2.default.createElement(
 	        'div',
@@ -1553,7 +1607,7 @@
 	        )
 	    );
 	    // highlight-next-line
-	    ReactDOM.render(element, document.getElementById('joot'));
+	    _reactDom2.default.render(element, document.getElementById('joot'));
 	}
 	
 	setInterval(tick, 1000);
@@ -23803,11 +23857,9 @@
 	            null,
 	            this.state.originalCurrency
 	          ),
-	          _react2.default.createElement(
-	            "textarea",
-	            { name: "", id: "", cols: "30", rows: "10" },
-	            JSON.stringify(this.state)
-	          )
+	          _react2.default.createElement("textarea", { name: "", id: "", cols: "30", rows: "10",
+	            defaultValue: JSON.stringify(this.state)
+	          })
 	        )
 	      );
 	    }
